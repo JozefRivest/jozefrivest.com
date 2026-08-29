@@ -1,378 +1,283 @@
 <!doctype html>
-<html lang="fr">
+<html lang="fr" data-theme="light">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Jozef Rivest — Doctorant en science politique et informatique scientifique à l'Université du Michigan. Recherche en opinion publique, Asie de l'Est et méthodes computationnelles."
+    />
     <title>Jozef Rivest</title>
     <link rel="icon" type="image/png" href="images/cerisier.JPG" />
-    <link rel="shortcut icon" type="image/png" href="images/cerisier.JPG" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/css/main_3.css" />
   </head>
-  <body class="is-preload">
+  <body>
     <!-- Nav -->
-    <nav id="nav">
-      <div class="na-container">
-        <button class="nav-toggle" aria-label="Toggle Navigation">☰</button>
-        <ul class="container">
-          <li><a href="#top">À propos</a></li>
-          <li><a href="#work">Domaines de recherche</a></li>
-          <li><a href="#papers">Publications</a></li>
-          <li><a href="#cv">CV</a></li>
-          <li class="social-nav">
-            <a href="mailto:jrivest@umich.edu" aria-label="Email">
-              <i class="fas fa-envelope"></i>
-            </a>
-          </li>
-          <li class="social-nav">
-            <a
-              href="https://github.com/JozefRivest"
-              target="_blank"
-              aria-label="GitHub"
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-inner">
+        <a class="nav-brand" href="index_fr.html">Jozef Rivest</a>
+
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Ouvrir le menu"
+          aria-expanded="false"
+        >
+          ≡
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#publications">publications</a></li>
+          <li><a href="#cv">cv</a></li>
+          <li>
+            <button
+              class="nav-btn"
+              id="theme-toggle"
+              aria-label="Basculer le mode sombre"
             >
-              <i class="fab fa-github"></i>
-            </a>
+              thème
+            </button>
           </li>
-          <li class="social-nav">
-            <a
-              href="https://www.linkedin.com/in/jozef-rivest-609146241"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </li>
-          <li class="social-nav">
-            <a
-              href="https://orcid.org/0000-0002-3195-3838"
-              target="_blank"
-              aria-label="ORCID"
-            >
-              <i class="fab fa-orcid"></i>
-            </a>
-          </li>
-          <li><a href="index.html">EN</a></li>
+          <li><a href="index.html">en</a></li>
         </ul>
       </div>
     </nav>
 
-    <!-- Home -->
-    <article id="top" class="wrapper style1">
-      <div class="profile-container">
-        <div class="profile-card">
-          <div class="cover-image-container">
-            <img
-              src="images/tokyo.jpeg"
-              alt="Sensoji at night"
-              class="cover-image"
-            />
-          </div>
-          <div class="profile-image-container">
-            <img
-              src="images/me.jpeg"
-              alt="Jozef Rivest"
-              class="profile-image"
-            />
-          </div>
-          <div class="content">
-            <header>
-              <h1><strong>Jozef Rivest</strong></h1>
-            </header>
-            <p align="justify">
-              Bienvenue ! Je suis doctorant à l'Université du Michigan. Mes
-              recherches se situent à l'intersection de l'opinion publique, de
-              la politique comparée et des relations internationales, avec un
-              focus régional sur l'Asie de l'Est et l'Indo-Pacifique. Ancré au
-              Japon et comparé à la Corée du Sud et à Taïwan, j'étudie
-              actuellement comment les héritages historiques tels que les
-              guerres, le colonialisme et la construction nationale façonnent la
-              perspective contemporaine des citoyens envers l'armée et l'État.
-              J'étudie également les méthodes de recherche, avec un focus
-              principal sur les techniques de mesure et de mise à l'échelle.
-              J'ai aussi publié quelques articles sur l'utilisation de l'IA dans
-              les sciences sociales, et leur précision dans la prédiction et la
-              classification des phénomènes politiques.
+    <!-- Main -->
+    <main class="main-content">
+      <!-- Hero -->
+      <div class="home">
+        <div class="home-header">
+          <!-- <img src="images/me.jpeg" alt="Jozef Rivest" class="home-photo" /> -->
+          <div>
+            <h1 class="site-name">Jozef Rivest</h1>
+            <p class="role">
+              Doctorant, Science politique &amp; science informatique<br />
+              Universit&eacute; du Michigan, Ann Arbor
             </p>
           </div>
         </div>
-      </div>
-    </article>
 
-    <!-- Work -->
-    <article id="work" class="wrapper style2">
-      <div class="container">
-        <header>
-          <h2>Domaines de recherche</h2>
-          <p style="text-align: justify">
-            Ci-dessous sont listés comment mes intérêts de recherche se situent
-            à l'intersection de l'opinion publique, de la politique comparée et
-            des relations internationales.
+        <nav class="social-row" aria-label="Liens sociaux">
+          <a class="pill" href="mailto:jrivest@umich.edu">courriel</a>
+          <a
+            class="pill"
+            href="https://github.com/JozefRivest"
+            target="_blank"
+            rel="noopener noreferrer"
+            >github</a
+          >
+          <a
+            class="pill"
+            href="https://www.linkedin.com/in/jozef-rivest-609146241"
+            target="_blank"
+            rel="noopener noreferrer"
+            >linkedin</a
+          >
+          <a
+            class="pill"
+            href="https://orcid.org/0000-0002-3195-3838"
+            target="_blank"
+            rel="noopener noreferrer"
+            >orcid</a
+          >
+        </nav>
+
+        <!-- Cartes de recherche -->
+        <div class="maps-strip">
+          <figure class="map-fig">
+            <img
+              src="images/panel_b2.png"
+              alt="Pourcentage d'appuis envers le PLD (moyenne 2017-2024)"
+              class="map-img"
+            />
+            <figcaption class="map-caption">
+              Pourcentage d'appuis envers le PLD (moyenne 2017-2024)
+            </figcaption>
+          </figure>
+          <figure class="map-fig">
+            <img
+              src="images/map_shinkansen.png"
+              alt="Réseau shinkansen du Japon par ligne"
+              class="map-img"
+            />
+            <figcaption class="map-caption">Réseau du Shinkansen</figcaption>
+          </figure>
+        </div>
+
+        <!-- Bio -->
+        <div class="bio">
+          <p>
+            Bienvenue ! Je suis doctorant à
+            <a
+              href="https://lsa.umich.edu/polisci/people/graduate-students/jozef-rivest.html"
+              >l’Université du Michigan</a
+            >. Mes recherches se situent à l’intersection de l’opinion publique,
+            de la politique comparée et des relations internationales, avec un
+            accent régional sur l’Asie de l’Est et l’Indo-Pacifique. Je
+            m’intéresse actuellement à la fourniture de biens publics, à
+            l’analyse spatiale, à l’opinion publique, au comportement électoral,
+            à l’analyse bayésienne et aux modèles multiniveaux. Mes travaux sont
+            ancrés au Japon, mais s’étendent également à la Corée du Sud, à
+            Taïwan et à l’Asie du Sud-Est.
           </p>
-        </header>
-        <div class="row aln-center">
-          <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured"> </span>
-              <h3>Opinion publique</h3>
-              <p
-                style="
-                  font-size: 15pt;
-                  text-align: justify;
-                  overflow-wrap: break-word;
-                  word-wrap: break-word;
-                  hyphens: auto;
-                "
-              >
-                Je m'intéresse à l'étude des attitudes et des normes sociales,
-                en particulier dans un cadre multiniveau, notamment les
-                différences et similitudes infranationales et transnationales.
-              </p>
-            </section>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured"> </span>
-              <h3>Politique comparée</h3>
-              <p
-                style="
-                  font-size: 15pt;
-                  text-align: justify;
-                  overflow-wrap: break-word;
-                  word-wrap: break-word;
-                  hyphens: auto;
-                "
-              >
-                J'étudie comment les héritages historiques, tels que les
-                guerres, le colonialisme et la formation de l'État façonnent les
-                attitudes envers les institutions militaires et le nationalisme
-                de manière comparative à travers le Japon, la Corée du Sud et
-                Taïwan.
-              </p>
-            </section>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured"> </span>
-              <h3>Relations internationales</h3>
-              <p
-                style="
-                  font-size: 15pt;
-                  text-align: justify;
-                  overflow-wrap: break-word;
-                  word-wrap: break-word;
-                  hyphens: auto;
-                "
-              >
-                Je m’intéresse à la manière dont les événements internationaux
-                et les facteurs géopolitiques contribuent à façonner la
-                perspective des citoyens sur la politique étrangère.
-              </p>
-            </section>
-          </div>
-          <div class="col-4 col-6-medium col-12-small">
-            <section class="box style1">
-              <span class="icon featured"> </span>
-              <h3>Méthodologie</h3>
-              <p
-                style="
-                  font-size: 15pt;
-                  text-align: justify;
-                  overflow-wrap: break-word;
-                  word-wrap: break-word;
-                  hyphens: auto;
-                "
-              >
-                Je m'intéresse à un vaste éventail de méthodes de recherche et à
-                leur mise en œuvre pour découvrir de nouvelles réponses aux
-                questions sociales et politiques. Je me concentre principalement
-                sur la mesure et les analyses dimensionnelles, mais mon intérêt
-                va bien au-delà des méthodes psychométriques et de la
-                conception.
-              </p>
-            </section>
-          </div>
+          <p>
+            J’étudie également les méthodes de recherche, avec un intérêt
+            principal pour les techniques de mesure et de mise à l’échelle. J’ai
+            publié plusieurs articles sur l’utilisation de l’IA dans les
+            sciences sociales, en examinant sa précision dans la prédiction et
+            la classification de phénomènes politiques.
+          </p>
+          <p>
+            Voici une photo de <a href="images/jozef-rivest1.jpg" ?>moi</a>.
+          </p>
+          <p>Go blue!</p>
         </div>
       </div>
-    </article>
 
-    <!-- Publications section -->
-    <article id="papers" class="wrapper style3">
-      <div class="container">
-        <header>
-          <h2>Publications</h2>
-          <p align="justify">
-            Pour une liste complète de mes publications, incluant les articles
-            non évalués par les pairs et les communications de conférence,
-            veuillez vous référer à mon CV ci-dessous.
-          </p>
-        </header>
-        <ol reversed>
-          <li class="pub li">
-            Foisy, L.-O. M., Proulx, É., Cadieux, H., Gilbert, J., Rivest, J.,
-            Bouillon, A., & Dufresne, Y. 2025. "Prompting the Machine:
-            Introducing an LLM Data Extraction Method for Social Scientists".
-            <em>Social Science Computer Review</em>, 44(3).
-            <a href=" https://doi.org/10.1177/08944393251344865"
-              >https://doi.org/10.1177/08944393251344865</a
+      <hr class="section-sep" />
+
+      <!-- Publications -->
+      <section id="publications">
+        <h2 class="page-title reveal">Publications</h2>
+
+        <ol class="pub-list" reversed>
+          <li class="reveal">
+            <p class="pub-title">
+              &laquo;&nbsp;Prompting the Machine: Introducing an LLM Data
+              Extraction Method for Social Scientists&nbsp;&raquo;
+            </p>
+            <p class="pub-authors">
+              Foisy, L.-O. M., Proulx, &Eacute;., Cadieux, H., Gilbert, J.,
+              <strong>Rivest, J.</strong>, Bouillon, A., &amp; Dufresne, Y.
+            </p>
+            <p class="pub-journal">Social Science Computer Review, 2025</p>
+            <a
+              class="pub-doi"
+              href="https://doi.org/10.1177/08944393251344865"
+              target="_blank"
+              rel="noopener noreferrer"
             >
+              doi:10.1177/08944393251344865 ↗
+            </a>
           </li>
-          <li class="pub li">
-            Foisy, Laurence M., Jérémie Drouin, Camille Pelletier, Jozef Rivest,
-            Hubert Cadieux & Yannick Dufresne. 2025. "Ain't no party like a GPT
-            party: assessing OpenAI's GPT political alignment classification
-            capabilities".
-            <em>Journal of Information Technology &amp; Politics</em>, 23(2),
-            1-13.
-            <a href="https://doi.org/10.1080/19331681.2024.2444587">
-              https://doi.org/10.1080/19331681.2024.2444587
+          <li class="reveal reveal-d1">
+            <p class="pub-title">
+              &laquo;&nbsp;Ain&rsquo;t no party like a GPT party: assessing
+              OpenAI&rsquo;s GPT political alignment classification
+              capabilities&nbsp;&raquo;
+            </p>
+            <p class="pub-authors">
+              Foisy, L. M., Drouin, J., Pelletier, C.,
+              <strong>Rivest, J.</strong>, Cadieux, H., &amp; Dufresne, Y.
+            </p>
+            <p class="pub-journal">
+              Journal of Information Technology &amp; Politics, 2025, 1&ndash;13
+            </p>
+            <a
+              class="pub-doi"
+              href="https://doi.org/10.1080/19331681.2024.2444587"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              doi:10.1080/19331681.2024.2444587 ↗
             </a>
           </li>
         </ol>
-      </div>
-    </article>
+      </section>
 
-    <!-- CV Section -->
-    <article id="cv" class="wrapper style3">
-      <div class="container">
-        <header>
-          <h2>Academic CV</h2>
-          <p>Expériences de recherche et parcours académique</p>
-        </header>
-        <div class="cv-viewer">
-          <!-- PDF Viewer -->
+      <hr class="section-sep" />
+
+      <!-- CV -->
+      <section id="cv">
+        <h2 class="page-title reveal">CV</h2>
+
+        <div class="cv-embed reveal">
           <iframe
             src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/JozefRivest/cv_acad/main/cv_fr/CV_Rivest_fr.pdf#pagemode=none&zoom=page-width"
-            class="pdf-container"
-            title="CV Viewer"
-            aria-label="Academic CV Viewer"
-            style="width: 100%; height: 800px; border: none"
-          >
-          </iframe>
-
-          <!-- Download Button -->
-          <div style="margin-top: 3em; text-align: center">
-            <a
-              href="https://raw.githubusercontent.com/JozefRivest/cv_acad/main/CV_Rivest.pdf"
-              download
-              class="customButton"
-            >
-              <i class="fa fa-download" style="margin-right: 8px"></i>
-              Télécharger la version PDF
-            </a>
-          </div>
-          <!-- Accessibility Information -->
-          <div
-            class="accessibility-info"
-            style="
-              text-align: center;
-              margin-top: 1em;
-              font-size: 0.9em;
-              color: #888;
-            "
-          >
-            <p>
-              Vous pouvez télécharger le version PDF du CV afin de la visualier
-              dans votre lecteur PDF préféré.
-            </p>
-          </div>
+            title="CV acad&eacute;mique"
+            aria-label="Visionneuse du CV acad&eacute;mique"
+          ></iframe>
         </div>
-      </div>
-    </article>
 
-    <!-- Copyright -->
-    <div class="wrapper style4">
-      <ul id="copyright">
-        <li>&copy; Jozef Rivest. Tous drois réservé</li>
-        <li>Design inspiré par: <a href="https://html5up.net">HTML5 UP</a></li>
-      </ul>
-    </div>
+        <a
+          class="download-link reveal"
+          href="https://raw.githubusercontent.com/JozefRivest/cv_acad/main/CV_Rivest.pdf"
+          download
+        >
+          ↓ t&eacute;l&eacute;charger le pdf
+        </a>
+      </section>
+    </main>
 
-    <!-- Dark mode toggle button -->
-    <button
-      class="dark-mode-toggle"
-      id="darkModeToggle"
-      aria-label="Toggle dark mode"
-    >
-      <i class="fas fa-moon"></i>
-    </button>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p>
+        &copy; 2025 Jozef Rivest &mdash;
+        <a href="index.html">english version</a>
+      </p>
+    </footer>
 
     <script>
-      // Dark mode functionality
-      function toggleDarkMode() {
-        const html = document.documentElement;
-        const currentTheme = html.getAttribute("data-theme");
-        const newTheme = currentTheme === "dark" ? "light" : "dark";
+      // ---- Thème ----
+      const themeBtn = document.getElementById("theme-toggle");
+      const html = document.documentElement;
 
-        html.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-
-        // Update button icon
-        const toggleButton = document.getElementById("darkModeToggle");
-        const icon = toggleButton.querySelector("i");
-        icon.className = newTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
+      function applyTheme(t) {
+        html.setAttribute("data-theme", t);
+        localStorage.setItem("theme", t);
+        themeBtn.textContent = t === "dark" ? "clair" : "sombre";
       }
 
-      // Initialize theme on page load
-      function initializeTheme() {
-        const savedTheme = localStorage.getItem("theme") || "light";
-        const html = document.documentElement;
-        html.setAttribute("data-theme", savedTheme);
+      const saved = localStorage.getItem("theme");
+      const sys = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+      applyTheme(saved || sys);
 
-        // Update button icon
-        const toggleButton = document.getElementById("darkModeToggle");
-        const icon = toggleButton.querySelector("i");
-        icon.className = savedTheme === "dark" ? "fas fa-sun" : "fas fa-moon";
-      }
-
-      // Updated JavaScript for your navigation toggle
-      document.addEventListener("DOMContentLoaded", function () {
-        // Initialize theme
-        initializeTheme();
-
-        // Add event listener for dark mode toggle
-        const darkModeToggle = document.getElementById("darkModeToggle");
-        darkModeToggle.addEventListener("click", toggleDarkMode);
-
-        // Get the toggle button and navigation menu's UL element
-        const navToggle = document.querySelector(".nav-toggle");
-        const navMenu = document.querySelector("#nav ul.container");
-
-        // Toggle navigation menu when button is clicked
-        if (navToggle) {
-          navToggle.addEventListener("click", function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            navMenu.classList.toggle("show");
-            console.log(
-              "Toggle clicked - menu is now:",
-              navMenu.classList.contains("show") ? "shown" : "hidden",
-            );
-          });
-        } else {
-          console.error("Navigation toggle button not found");
-        }
-
-        // Close menu when clicking elsewhere on the page
-        document.addEventListener("click", function (event) {
-          if (
-            !event.target.closest("#nav") &&
-            navMenu.classList.contains("show")
-          ) {
-            navMenu.classList.remove("show");
-          }
-        });
-
-        // Handle window resize
-        window.addEventListener("resize", function () {
-          if (window.innerWidth > 768 && navMenu.classList.contains("show")) {
-            navMenu.classList.remove("show");
-          }
-        });
+      themeBtn.addEventListener("click", () => {
+        applyTheme(
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark",
+        );
       });
+
+      // ---- Menu mobile ----
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        const open = navLinks.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", open);
+        hamburger.textContent = open ? "✕" : "≡";
+      });
+
+      document.addEventListener("click", (e) => {
+        if (
+          !e.target.closest("#site-nav") &&
+          navLinks.classList.contains("open")
+        ) {
+          navLinks.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.textContent = "≡";
+        }
+      });
+
+      // ---- Scroll reveal ----
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -20px 0px" },
+      );
+
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
