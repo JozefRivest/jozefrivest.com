@@ -28,6 +28,7 @@
 
         <ul class="nav-links" id="nav-links">
           <li><a href="#publications">publications</a></li>
+          <li><a href="#research">research</a></li>
           <li><a href="#cv">cv</a></li>
           <li>
             <button
@@ -170,7 +171,7 @@
             of AI in the social sciences, examining its accuracy in predicting
             and classifying political phenomena.
           </p>
-          <p>This is a picture of <a href="images/jozef-rivest1.jpg">me</a>.</p>
+          <p>This is a picture of <a href="images/rivest_2.jpg">me</a>.</p>
           <p>Go blue!</p>
           <p class="email">jrivest@umich.edu</p>
         </div>
@@ -222,6 +223,86 @@
             >
               doi:10.1080/19331681.2024.2444587 ↗
             </a>
+          </li>
+        </ol>
+      </section>
+
+      <hr class="section-sep" />
+
+      <!--Working paper and work in progress-->
+      <section id="research">
+        <h2 class="page-title reveal">Working Papers</h2>
+        <ol class="pub-list" reversed>
+          <li class="reveal">
+            <p class="pub-title">
+              "Unshakable Pacifism? Psychometric Approach to Japan's
+              Contemporary Pacifist and Antimilitarist Attitudes"
+            </p>
+            <button type="button" class="collapsible">[Abstract]</button>
+            <div class="content">
+              <p class="abstract-content">
+                Research on Japanese pacifism and antimilitarism has long relied
+                on survey items to compare attitudes across demographic groups
+                and over time. However, these comparisons rest on three untested
+                assumptions: (1) that pacifism/antimilitarism is unidimensional,
+                (2) that all items contribute equally to measuring these
+                attitudes, and (3) that items measure the same constructs across
+                groups (measurement invariance). Using data from the 2022
+                UTokyo-Asahi Survey (N=1,014), I use a psychometric approach to
+                evaluate these assumptions. Results reveal a two-dimensional
+                structure distinguishing domestic capabilities from
+                international dimensions. Measurement invariance tests yield a
+                differentiated picture: the scale achieves full strong
+                invariance across age cohorts, providing a valid basis for
+                cross-generational comparisons, while weak invariance marginally
+                fails to reach significance across gender (p = 0.090), though
+                item intercepts remain fully equivalent. Critically, these
+                results—combined with the dimensional structure and differential
+                item functioning analyses—demonstrate that single-item
+                inferences about pacifist and antimilitarist attitudes are
+                doubly unreliable: they capture only one dimension of a
+                two-dimensional construct and may be biased for specific groups.
+                A properly specified multi-item scale, validated through
+                measurement invariance testing, offers a more robust foundation
+                for inference. I argue that future research must account for
+                this multidimensional structure and establish measurement
+                equivalence before making cross-group comparisons. These
+                findings establish methodological foundations for longitudinal
+                research examining temporal changes in these attitudes.
+              </p>
+            </div>
+          </li>
+        </ol>
+
+        <h2 class="page-title reveal" style="margin-top: 2rem">
+          Works in Progress
+        </h2>
+        <ol class="pub-list" reversed>
+          <li class="reveal">
+            <p class="pub-title">
+              "Missing the Train: Shinkansen Bypass and Political Alienation in
+              Japan"
+            </p>
+          </li>
+          <li class="reveal reveal-d1">
+            <p class="pub-title">
+              "Permanent or Temporary? Understanding Japanese Preferences Toward
+              Immigration"
+            </p>
+            <p class="pub-authors">
+              With Mathieu Turgeon, Yannick Dufresne, Takeshi Iida, Tetsuya
+              Matsubayashi
+            </p>
+          </li>
+          <li class="reveal reveal-d2">
+            <p class="pub-title">
+              "Public Support for Emerging Military Technology Development in
+              Middle Powers"
+            </p>
+            <p class="pub-authors">
+              With Tyler Girard (main author), Mathieu Turgeon, Yannick
+              Dufresne, Takeshi Iida, Tetsuya Matsubayashi
+            </p>
           </li>
         </ol>
       </section>
@@ -318,6 +399,22 @@
       document
         .querySelectorAll(".reveal")
         .forEach((el) => observer.observe(el));
+
+      // ----- Abstract ------
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
     </script>
   </body>
 </html>

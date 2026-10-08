@@ -19,6 +19,7 @@
   --font-display: "Space Grotesk", system-ui, sans-serif;
   --font-body: "Source Serif 4", Georgia, serif;
   --font-mono: "JetBrains Mono", "SF Mono", monospace;
+  --accent: var(--um-blue);
 }
 
 [data-theme="dark"] {
@@ -30,6 +31,7 @@
   --surface: #292524;
   --border: #44403c;
   --dim: #a8a29e;
+  --accent: var(--um-maize);
 }
 
 /* ============================================================
@@ -445,8 +447,50 @@ h1.site-name::after {
   color: var(--um-blue);
   letter-spacing: 0.02em;
 }
-.pub-doi:hover {
+
+[data-theme="dark"] .pub-doi {
+  color: var(--um-maize);
+}
+
+/* .pub-doi:hover { */
+/*   color: var(--text); */
+/* } */
+
+.collapsible {
+  background-color: var(--bg);
+  font-family: var(--font-mono);
+  color: var(--um-blue);
+  cursor: pointer;
+  padding: 5px;
+  width: auto;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 0.8rem;
+}
+
+[data-theme="dark"] .collapsible {
+  color: var(--um-maize);
+}
+
+.active,
+.collapsible:hover {
   color: var(--text);
+}
+
+.content {
+  padding: 0 18px;
+  overflow: hidden;
+  background-color: var(--bg);
+  max-height: 0;
+  transition: max-height 0.4s ease-out;
+}
+
+.abstract-content {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text);
+  text-align: justify;
 }
 
 /* ============================================================
