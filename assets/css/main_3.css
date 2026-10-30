@@ -375,6 +375,7 @@ h1.site-name::after {
 .bio p {
   color: var(--text);
   margin-bottom: 1rem;
+  text-align: justify;
 }
 .bio p:last-child {
   margin-bottom: 0;
