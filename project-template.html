@@ -401,8 +401,15 @@ plot_hp_mpg()
               A <code>makefile</code> records how data, code, and documents depend
               on each other. Only the outputs whose inputs changed are rebuilt, and
               the same file is the start of a replication package.
+              <a href="https://rstudio.github.io/renv/" target="_blank"
+                rel="noopener noreferrer">renv</a> records the exact version of every
+              R package the project uses in <code>renv.lock</code>, so anyone who
+              clones it can restore the same package environment with one command.
             </p>
-            <pre><code>make               <span class="c"># paper, slides, and poster</span>
+            <pre><code>renv::restore()    <span class="c"># install the recorded package versions</span>
+renv::snapshot()   <span class="c"># record new or updated packages</span>
+
+make               <span class="c"># paper, slides, and poster</span>
 make paper         <span class="c"># just the paper</span>
 make clean         <span class="c"># remove cached results and outputs</span></code></pre>
           </li>
@@ -467,10 +474,12 @@ python org_table.py readings.yaml --xlsx</code></pre>
           > on GitHub, or create a copy from the terminal. You will need
           <a href="https://quarto.org" target="_blank" rel="noopener noreferrer"
             >Quarto</a
-          > (≥ 1.8), R, and a LaTeX distribution.
+          > (≥ 1.8), R with the renv package, and a LaTeX distribution (a full
+          TeX Live or MacTeX install is recommended).
         </p>
         <pre class="reveal"><code>gh repo create my-project --template JozefRivest/project-template-quarto --clone
 cd my-project
+Rscript -e 'renv::restore()'
 make</code></pre>
       </section>
 
