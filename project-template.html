@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A Quarto project template for research: one set of R scripts feeds the paper, slides, and poster, with a makefile for reproducibility and a YAML + Python reading-notes tool."
+    />
+    <title>Quarto Project Template · Jozef Rivest</title>
+    <link rel="icon" type="image/png" href="images/cerisier.JPG" />
+    <link rel="stylesheet" href="assets/css/main_3.css" />
+    <style>
+      /* ---- Page-specific styles (template page) ---- */
+      .nav-links a[aria-current="page"] {
+        color: var(--text);
+        border-bottom-color: var(--accent);
+      }
+
+      .lede {
+        margin-bottom: 1rem;
+        text-align: justify;
+      }
+
+      .section-title {
+        font-size: 1.6rem;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+        margin-bottom: 1.1rem;
+      }
+
+      section p {
+        margin-bottom: 1rem;
+      }
+
+      code,
+      pre {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+      }
+
+      p code,
+      li code {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 3px;
+        padding: 0.05rem 0.3rem;
+        font-size: 0.78em;
+      }
+
+      pre {
+        background: var(--surface);
+        border: 1.5px solid var(--border);
+        border-radius: 4px;
+        padding: 0.85rem 1rem;
+        overflow-x: auto;
+        line-height: 1.6;
+        margin: 0.25rem 0 1.25rem;
+        color: var(--text);
+      }
+
+      pre code {
+        background: none;
+        border: none;
+        padding: 0;
+        font-size: inherit;
+      }
+
+      pre .c {
+        color: var(--dim);
+      }
+
+      /* Flow: shared sources -> three outputs */
+      .flow {
+        border-top: 2px solid var(--border);
+        border-bottom: 2px solid var(--border);
+        background: var(--surface);
+        padding: 1.25rem 1rem 1rem;
+        margin: 0.5rem 0 1.75rem;
+      }
+
+      .flow-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--dim);
+        text-align: center;
+        margin-bottom: 0.5rem;
+      }
+
+      .sources {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.4rem;
+      }
+
+      .src {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 0.24rem 0.6rem;
+        border: 1.5px solid var(--accent);
+        border-radius: 100px;
+        color: var(--accent);
+        background: var(--bg);
+      }
+
+      .flow-arrow {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--dim);
+        text-align: center;
+        margin: 0.7rem 0;
+        line-height: 1.4;
+      }
+
+      .flow-arrow span {
+        display: block;
+        font-size: 1.1rem;
+        color: var(--accent);
+      }
+
+      /* Tabbed PDF viewer */
+      .tabs {
+        display: flex;
+        justify-content: center;
+        gap: 0.4rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .tab {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 0.24rem 0.8rem;
+        border: 1.5px solid var(--border);
+        border-radius: 100px;
+        background: var(--bg);
+        color: var(--dim);
+        cursor: pointer;
+        transition:
+          color 0.15s,
+          border-color 0.15s,
+          background 0.15s;
+      }
+
+      .tab:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .tab[aria-selected="true"] {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--bg);
+      }
+
+      .viewer {
+        border: 1.5px solid var(--border);
+        border-radius: 4px;
+        overflow: hidden;
+        background: var(--bg);
+      }
+
+      .viewer iframe {
+        width: 100%;
+        height: 640px;
+        border: none;
+        display: block;
+      }
+
+      .viewer-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.5rem;
+        margin: 0.6rem 0 0;
+        font-family: var(--font-mono);
+        font-size: 0.7rem;
+        color: var(--dim);
+      }
+
+      @media (max-width: 600px) {
+        .viewer iframe {
+          height: 480px;
+        }
+      }
+
+      /* Feature list */
+      .features {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1.6rem;
+      }
+
+      .feature h3 {
+        font-size: 1.05rem;
+        font-weight: 600;
+        margin-bottom: 0.35rem;
+      }
+
+      .feature p {
+        margin-bottom: 0.6rem;
+        text-align: justify;
+      }
+
+      .feature ul {
+        margin: 0 0 0.8rem 1.2rem;
+      }
+
+      .feature li {
+        margin-bottom: 0.2rem;
+      }
+
+      /* Issue labels */
+      .labels {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        margin: 0.25rem 0 0.5rem;
+      }
+
+      .label {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        padding: 0.12rem 0.55rem;
+        border-radius: 100px;
+        border: 1.5px solid var(--border);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        color: var(--text);
+      }
+
+      .label i {
+        width: 0.6rem;
+        height: 0.6rem;
+        border-radius: 50%;
+        display: inline-block;
+        border: 1px solid var(--border);
+      }
+
+      .thanks p {
+        text-align: justify;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav -->
+    <nav class="site-nav" id="site-nav">
+      <div class="nav-inner">
+        <a class="nav-brand" href="/">Jozef Rivest</a>
+
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          ≡
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="/#publications">publications</a></li>
+          <li><a href="/#research">research</a></li>
+          <li><a href="/#cv">cv</a></li>
+          <li><a href="project-template.html" aria-current="page">template</a></li>
+          <li>
+            <button
+              class="nav-btn"
+              id="theme-toggle"
+              aria-label="Toggle dark mode"
+            >
+              theme
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-content">
+      <!-- Header -->
+      <div class="home">
+        <div class="home-header">
+          <div>
+            <h1 class="site-name">Project Template</h1>
+            <p class="role">
+              A Quarto framework for research projects<br />
+              paper · slides · poster · reproducible builds · reading notes
+            </p>
+          </div>
+        </div>
+
+        <nav class="social-row" aria-label="Template links">
+          <a
+            class="pill"
+            href="https://github.com/JozefRivest/project-template-quarto"
+            target="_blank"
+            rel="noopener noreferrer"
+            >github repo ↗</a
+          >
+          <a
+            class="pill"
+            href="https://github.com/JozefRivest/project-template-quarto/generate"
+            target="_blank"
+            rel="noopener noreferrer"
+            >use this template ↗</a
+          >
+        </nav>
+
+        <p class="lede">
+          Cloning a template should give you more than folders. It should give you
+          a way of working. This template organizes a research project from reading
+          notes to the final poster around a single idea: <strong>write the
+          analysis once, and let every output draw from it.</strong> When a model
+          changes the week before a deadline, you re-render, and the code, figures,
+          and tables update across the paper, the slides, and the poster at the
+          same time.
+        </p>
+      </div>
+
+      <!-- Flow -->
+      <div class="flow reveal" aria-label="How the template fits together">
+        <p class="flow-label">written once</p>
+        <div class="sources">
+          <span class="src">code/03_figures.R</span>
+          <span class="src">code/04_tables.R</span>
+          <span class="src">_quarto.yml</span>
+          <span class="src">references/refs.bib</span>
+        </div>
+        <p class="flow-arrow"><span>↓</span>make</p>
+        <div class="tabs" role="tablist" aria-label="Rendered outputs">
+          <button class="tab" role="tab" aria-selected="true" data-doc="paper">
+            paper
+          </button>
+          <button class="tab" role="tab" aria-selected="false" data-doc="slides">
+            slides
+          </button>
+          <button class="tab" role="tab" aria-selected="false" data-doc="poster">
+            poster
+          </button>
+        </div>
+        <div class="viewer">
+          <iframe
+            id="doc-frame"
+            src="https://mozilla.github.io/pdf.js/web/viewer.html?file=https://raw.githubusercontent.com/JozefRivest/project-template-quarto/main/_output/paper/paper.pdf#pagemode=none&zoom=page-width"
+            title="Rendered paper (PDF)"
+            loading="lazy"
+          ></iframe>
+        </div>
+        <p class="viewer-meta">
+          <span id="doc-note">The paper, rendered straight from the repository.</span>
+          <a class="download-link" id="doc-download"
+            href="https://raw.githubusercontent.com/JozefRivest/project-template-quarto/main/_output/paper/paper.pdf"
+            download
+            >↓ download pdf</a
+          >
+        </p>
+      </div>
+
+      <hr class="section-sep" />
+
+      <!-- Features -->
+      <section id="framework">
+        <h2 class="page-title reveal">The framework</h2>
+
+        <ol class="features">
+          <li class="feature reveal">
+            <h3>Revise once, update everywhere</h3>
+            <p>
+              Figures and tables are defined in R scripts under <code>code/</code>
+              and sourced by every document. The paper, the slides, and the poster
+              always show the same results. There is no stale table left in last
+              month's slides.
+            </p>
+            <pre><code>```{r}
+#| label: fig-scatter
+source("../code/03_figures.R")
+plot_hp_mpg()
+```</code></pre>
+          </li>
+
+          <li class="feature reveal">
+            <h3>Shared foundations</h3>
+            <p>
+              Authors, affiliations, ORCID, the date, and the bibliography are set
+              once in <code>_quarto.yml</code>. The paper is split into numbered
+              section files, and uses biblatex with cross-references for figures,
+              tables, equations, and sections. Tagging a heading
+              <code>{.appendix}</code> or <code>{.supplementary}</code> gives the
+              back matter its own numbering (A1, S1, pages S-1, S-2…) and its own
+              table of contents. The slides use a University of Michigan Beamer
+              theme, and the poster uses a Gemini-based Quarto extension.
+            </p>
+          </li>
+
+          <li class="feature reveal">
+            <h3>Reproducible by design</h3>
+            <p>
+              A <code>makefile</code> records how data, code, and documents depend
+              on each other. Only the outputs whose inputs changed are rebuilt, and
+              the same file is the start of a replication package.
+            </p>
+            <pre><code>make               <span class="c"># paper, slides, and poster</span>
+make paper         <span class="c"># just the paper</span>
+make clean         <span class="c"># remove cached results and outputs</span></code></pre>
+          </li>
+
+          <li class="feature reveal">
+            <h3>Reading notes as data</h3>
+            <p>
+              Literature notes live in a plain <code>readings.yaml</code> file:
+              version-controlled, searchable, and not stuck in someone else's app. A
+              small Python tool, <code>notes/org_table.py</code>, can:
+            </p>
+            <ul>
+              <li>import papers from Zotero collections or Obsidian notes</li>
+              <li>
+                show them as a filterable, sortable table in the browser that
+                updates live as you edit
+              </li>
+              <li>export the table to Excel</li>
+              <li>
+                draw an interactive citation graph showing how your papers connect,
+                and which papers you are missing that they cite or that cite them
+              </li>
+            </ul>
+            <pre><code>python org_table.py readings.yaml --from-zotero "RDD papers"
+python org_table.py readings.yaml --live
+python org_table.py readings.yaml --graph
+python org_table.py readings.yaml --xlsx</code></pre>
+          </li>
+
+          <li class="feature reveal">
+            <h3>A workflow for tasks too</h3>
+            <p>
+              The repository comes with issue labels for the parts of a research
+              project, and a small shell function that pulls a GitHub issue into
+              <code>issues/</code> as Markdown so you can edit it from the terminal.
+            </p>
+            <div class="labels" aria-label="Issue labels">
+              <span class="label"><i style="background: #ffffff"></i>blocked</span>
+              <span class="label"><i style="background: #d73a4a"></i>bug</span>
+              <span class="label"><i style="background: #e4e669"></i>code</span>
+              <span class="label"><i style="background: #0075ca"></i>data</span>
+              <span class="label"><i style="background: #7057ff"></i>presentation</span>
+              <span class="label"><i style="background: #f89542"></i>review</span>
+              <span class="label"><i style="background: #008672"></i>writing</span>
+              <span class="label"><i style="background: #5319e7"></i>todo</span>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <hr class="section-sep" />
+
+      <!-- Get started -->
+      <section id="start">
+        <h2 class="page-title reveal">Get started</h2>
+        <p class="reveal">
+          Click <a
+            href="https://github.com/JozefRivest/project-template-quarto/generate"
+            target="_blank"
+            rel="noopener noreferrer"
+            >use this template</a
+          > on GitHub, or create a copy from the terminal. You will need
+          <a href="https://quarto.org" target="_blank" rel="noopener noreferrer"
+            >Quarto</a
+          > (≥ 1.8), R, and a LaTeX distribution.
+        </p>
+        <pre class="reveal"><code>gh repo create my-project --template JozefRivest/project-template-quarto --clone
+cd my-project
+make</code></pre>
+      </section>
+
+      <hr class="section-sep" />
+
+      <!-- Acknowledgements -->
+      <section id="thanks" class="thanks">
+        <h2 class="page-title reveal">Acknowledgements</h2>
+        <p class="reveal">
+          This project owes a lot to two people. Vincent Arel-Bundock, whose
+          computational tools, including <em>modelsummary</em>,
+          <em>marginaleffects</em>, and <em>tinytable</em>, have done so much for
+          how social scientists work with and communicate their results. And
+          Yusaku Horiuchi, with whom I discussed an earlier draft of this
+          workflow, and whose LaTeX template inspired much of its structure.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Jozef Rivest &mdash; <a href="/">home</a></p>
+    </footer>
+
+    <script>
+      // ---- Theme ----
+      const themeBtn = document.getElementById("theme-toggle");
+      const html = document.documentElement;
+
+      function applyTheme(t) {
+        html.setAttribute("data-theme", t);
+        try {
+          localStorage.setItem("theme", t);
+        } catch (e) {}
+        themeBtn.textContent = t === "dark" ? "light" : "dark";
+      }
+
+      let saved = null;
+      try {
+        saved = localStorage.getItem("theme");
+      } catch (e) {}
+      const sys = window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+      applyTheme(saved || sys);
+
+      themeBtn.addEventListener("click", () => {
+        applyTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+      });
+
+      // ---- Mobile nav ----
+      const hamburger = document.getElementById("hamburger");
+      const navLinks = document.getElementById("nav-links");
+
+      hamburger.addEventListener("click", () => {
+        const open = navLinks.classList.toggle("open");
+        hamburger.setAttribute("aria-expanded", open);
+        hamburger.textContent = open ? "✕" : "≡";
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest("#site-nav") && navLinks.classList.contains("open")) {
+          navLinks.classList.remove("open");
+          hamburger.setAttribute("aria-expanded", "false");
+          hamburger.textContent = "≡";
+        }
+      });
+
+      // ---- PDF viewer tabs ----
+      const RAW =
+        "https://raw.githubusercontent.com/JozefRivest/project-template-quarto/main/_output/";
+      const VIEWER = "https://mozilla.github.io/pdf.js/web/viewer.html?file=";
+      const DOCS = {
+        paper: {
+          path: "paper/paper.pdf",
+          zoom: "page-width",
+          title: "Rendered paper (PDF)",
+          note: "The paper, rendered straight from the repository.",
+        },
+        slides: {
+          path: "presentation/presentation.pdf",
+          zoom: "page-fit",
+          title: "Rendered slides (PDF)",
+          note: "The Beamer slides, from the same code.",
+        },
+        poster: {
+          path: "poster/poster.pdf",
+          zoom: "page-fit",
+          title: "Rendered poster (PDF)",
+          note: "The conference poster, from the same code.",
+        },
+      };
+      const frame = document.getElementById("doc-frame");
+      const download = document.getElementById("doc-download");
+      const note = document.getElementById("doc-note");
+      const tabs = document.querySelectorAll(".tab");
+
+      tabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const d = DOCS[tab.dataset.doc];
+          tabs.forEach((t) => t.setAttribute("aria-selected", t === tab));
+          frame.src = VIEWER + RAW + d.path + "#pagemode=none&zoom=" + d.zoom;
+          frame.title = d.title;
+          download.href = RAW + d.path;
+          note.textContent = d.note;
+        });
+      });
+
+      // ---- Scroll reveal ----
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+              observer.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -20px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+    </script>
+  </body>
+</html>
