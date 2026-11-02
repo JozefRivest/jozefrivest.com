@@ -265,7 +265,9 @@
           <li><a href="/#publications">publications</a></li>
           <li><a href="/#research">research</a></li>
           <li><a href="/#cv">cv</a></li>
-          <li><a href="project-template.html" aria-current="page">template</a></li>
+          <li>
+            <a href="project-template.html" aria-current="page">template</a>
+          </li>
           <li>
             <button
               class="nav-btn"
@@ -310,13 +312,15 @@
         </nav>
 
         <p class="lede">
-          Cloning a template should give you more than folders. It should give you
-          a way of working. This template organizes a research project from reading
-          notes to the final poster around a single idea: <strong>write the
-          analysis once, and let every output draw from it.</strong> When a model
-          changes the week before a deadline, you re-render, and the code, figures,
-          and tables update across the paper, the slides, and the poster at the
-          same time.
+          Cloning a template should give you more than folders. It should give
+          you a way of working. This template organizes a research project from
+          reading notes to the final poster around a single idea:
+          <strong
+            >write the analysis once, and let every output draw from it.</strong
+          >
+          When a model changes the week before a deadline, you re-render, and
+          the code, figures, and tables update across the paper, the slides, and
+          the poster at the same time.
         </p>
       </div>
 
@@ -334,10 +338,20 @@
           <button class="tab" role="tab" aria-selected="true" data-doc="paper">
             paper
           </button>
-          <button class="tab" role="tab" aria-selected="false" data-doc="slides">
+          <button
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            data-doc="slides"
+          >
             slides
           </button>
-          <button class="tab" role="tab" aria-selected="false" data-doc="poster">
+          <button
+            class="tab"
+            role="tab"
+            aria-selected="false"
+            data-doc="poster"
+          >
             poster
           </button>
         </div>
@@ -350,8 +364,12 @@
           ></iframe>
         </div>
         <p class="viewer-meta">
-          <span id="doc-note">The paper, rendered straight from the repository.</span>
-          <a class="download-link" id="doc-download"
+          <span id="doc-note"
+            >The paper, rendered straight from the repository.</span
+          >
+          <a
+            class="download-link"
+            id="doc-download"
             href="https://raw.githubusercontent.com/JozefRivest/project-template-quarto/main/_output/paper/paper.pdf"
             download
             >↓ download pdf</a
@@ -367,12 +385,42 @@
 
         <ol class="features">
           <li class="feature reveal">
+            <h3>Repo as a workflow template</h3>
+            <p>
+              The whole repository is a workflow template. It comes with issue
+              labels for organizing and planning work and for tracking every
+              step of a research project. It also includes a small shell
+              function that pulls a GitHub issue into
+              <code>issues/</code> as Markdown, so you can edit issues in your
+              code editor and update them with the GitHub CLI.
+            </p>
+            <div class="labels" aria-label="Issue labels">
+              <span class="label"
+                ><i style="background: #ffffff"></i>blocked</span
+              >
+              <span class="label"><i style="background: #d73a4a"></i>bug</span>
+              <span class="label"><i style="background: #e4e669"></i>code</span>
+              <span class="label"><i style="background: #0075ca"></i>data</span>
+              <span class="label"
+                ><i style="background: #7057ff"></i>presentation</span
+              >
+              <span class="label"
+                ><i style="background: #f89542"></i>review</span
+              >
+              <span class="label"
+                ><i style="background: #008672"></i>writing</span
+              >
+              <span class="label"><i style="background: #5319e7"></i>todo</span>
+            </div>
+          </li>
+          <li class="feature reveal">
             <h3>Revise once, update everywhere</h3>
             <p>
-              Figures and tables are defined in R scripts under <code>code/</code>
-              and sourced by every document. The paper, the slides, and the poster
-              always show the same results. There is no stale table left in last
-              month's slides.
+              Figures and tables are defined in R scripts under
+              <code>code/</code>
+              and sourced by every document. The paper, the slides, and the
+              poster always show the same results. There is no stale table left
+              in last month's slides.
             </p>
             <pre><code>```{r}
 #| label: fig-scatter
@@ -384,27 +432,32 @@ plot_hp_mpg()
           <li class="feature reveal">
             <h3>Shared foundations</h3>
             <p>
-              Authors, affiliations, ORCID, the date, and the bibliography are set
-              once in <code>_quarto.yml</code>. The paper is split into numbered
-              section files, and uses biblatex with cross-references for figures,
-              tables, equations, and sections. Tagging a heading
-              <code>{.appendix}</code> or <code>{.supplementary}</code> gives the
-              back matter its own numbering (A1, S1, pages S-1, S-2…) and its own
-              table of contents. The slides use a University of Michigan Beamer
-              theme, and the poster uses a Gemini-based Quarto extension.
+              Authors, affiliations, ORCID, the date, and the bibliography are
+              set once in <code>_quarto.yml</code>. The paper is split into
+              numbered section files, and uses biblatex with cross-references
+              for figures, tables, equations, and sections. Tagging a heading
+              <code>{.appendix}</code> or <code>{.supplementary}</code> gives
+              the back matter its own numbering (A1, S1, pages S-1, S-2…) and
+              its own table of contents. The slides use a University of Michigan
+              Beamer theme, and the poster uses a Gemini-based Quarto extension.
             </p>
           </li>
 
           <li class="feature reveal">
             <h3>Reproducible by design</h3>
             <p>
-              A <code>makefile</code> records how data, code, and documents depend
-              on each other. Only the outputs whose inputs changed are rebuilt, and
-              the same file is the start of a replication package.
-              <a href="https://rstudio.github.io/renv/" target="_blank"
-                rel="noopener noreferrer">renv</a> records the exact version of every
-              R package the project uses in <code>renv.lock</code>, so anyone who
-              clones it can restore the same package environment with one command.
+              A <code>makefile</code> records how data, code, and documents
+              depend on each other. Only the outputs whose inputs changed are
+              rebuilt, and the same file is the start of a replication package.
+              <a
+                href="https://rstudio.github.io/renv/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >renv</a
+              >
+              records the exact version of every R package the project uses in
+              <code>renv.lock</code>, so anyone who clones it can restore the
+              same package environment with one command.
             </p>
             <pre><code>renv::restore()    <span class="c"># install the recorded package versions</span>
 renv::snapshot()   <span class="c"># record new or updated packages</span>
@@ -418,8 +471,8 @@ make clean         <span class="c"># remove cached results and outputs</span></c
             <h3>Reading notes as data</h3>
             <p>
               Literature notes live in a plain <code>readings.yaml</code> file:
-              version-controlled, searchable, and not stuck in someone else's app. A
-              small Python tool, <code>notes/org_table.py</code>, can:
+              version-controlled, searchable, and not stuck in someone else's
+              app. A small Python tool, <code>notes/org_table.py</code>, can:
             </p>
             <ul>
               <li>import papers from Zotero collections or Obsidian notes</li>
@@ -429,33 +482,15 @@ make clean         <span class="c"># remove cached results and outputs</span></c
               </li>
               <li>export the table to Excel</li>
               <li>
-                draw an interactive citation graph showing how your papers connect,
-                and which papers you are missing that they cite or that cite them
+                draw an interactive citation graph showing how your papers
+                connect, and which papers you are missing that they cite or that
+                cite them
               </li>
             </ul>
             <pre><code>python org_table.py readings.yaml --from-zotero "RDD papers"
 python org_table.py readings.yaml --live
 python org_table.py readings.yaml --graph
 python org_table.py readings.yaml --xlsx</code></pre>
-          </li>
-
-          <li class="feature reveal">
-            <h3>A workflow for tasks too</h3>
-            <p>
-              The repository comes with issue labels for the parts of a research
-              project, and a small shell function that pulls a GitHub issue into
-              <code>issues/</code> as Markdown so you can edit it from the terminal.
-            </p>
-            <div class="labels" aria-label="Issue labels">
-              <span class="label"><i style="background: #ffffff"></i>blocked</span>
-              <span class="label"><i style="background: #d73a4a"></i>bug</span>
-              <span class="label"><i style="background: #e4e669"></i>code</span>
-              <span class="label"><i style="background: #0075ca"></i>data</span>
-              <span class="label"><i style="background: #7057ff"></i>presentation</span>
-              <span class="label"><i style="background: #f89542"></i>review</span>
-              <span class="label"><i style="background: #008672"></i>writing</span>
-              <span class="label"><i style="background: #5319e7"></i>todo</span>
-            </div>
           </li>
         </ol>
       </section>
@@ -466,18 +501,23 @@ python org_table.py readings.yaml --xlsx</code></pre>
       <section id="start">
         <h2 class="page-title reveal">Get started</h2>
         <p class="reveal">
-          Click <a
+          Click
+          <a
             href="https://github.com/JozefRivest/project-template-quarto/generate"
             target="_blank"
             rel="noopener noreferrer"
             >use this template</a
-          > on GitHub, or create a copy from the terminal. You will need
+          >
+          on GitHub, or create a copy from the terminal. You will need
           <a href="https://quarto.org" target="_blank" rel="noopener noreferrer"
             >Quarto</a
-          > (≥ 1.8), R with the renv package, and a LaTeX distribution (a full
-          TeX Live or MacTeX install is recommended).
+          >
+          (≥ 1.8), R with the renv package, and a LaTeX distribution (a full TeX
+          Live or MacTeX install is recommended).
         </p>
-        <pre class="reveal"><code>gh repo create my-project --template JozefRivest/project-template-quarto --clone
+        <pre
+          class="reveal"
+        ><code>gh repo create my-project --template JozefRivest/project-template-quarto --clone
 cd my-project
 Rscript -e 'renv::restore()'
 make</code></pre>
@@ -491,8 +531,8 @@ make</code></pre>
         <p class="reveal">
           This project owes a lot to many people. Vincent Arel-Bundock, whose
           computational tools, including <em>modelsummary</em>,
-          <em>marginaleffects</em>, and <em>tinytable</em>, have done so much for
-          how social scientists work with and communicate their results.
+          <em>marginaleffects</em>, and <em>tinytable</em>, have done so much
+          for how social scientists work with and communicate their results.
           Yusaku Horiuchi, with whom I discussed an earlier draft of this
           workflow. His LaTeX template inspired part of the structure of this
           one. And the whole CLESSN crew, who first introduced me to these
@@ -503,7 +543,7 @@ make</code></pre>
     </main>
 
     <footer class="site-footer">
-      <p>&copy; 2025 Jozef Rivest &mdash; <a href="/">home</a></p>
+      <p>&copy; 2026 Jozef Rivest &mdash; <a href="index.html">home</a></p>
     </footer>
 
     <script>
@@ -529,7 +569,9 @@ make</code></pre>
       applyTheme(saved || sys);
 
       themeBtn.addEventListener("click", () => {
-        applyTheme(html.getAttribute("data-theme") === "dark" ? "light" : "dark");
+        applyTheme(
+          html.getAttribute("data-theme") === "dark" ? "light" : "dark",
+        );
       });
 
       // ---- Mobile nav ----
@@ -543,7 +585,10 @@ make</code></pre>
       });
 
       document.addEventListener("click", (e) => {
-        if (!e.target.closest("#site-nav") && navLinks.classList.contains("open")) {
+        if (
+          !e.target.closest("#site-nav") &&
+          navLinks.classList.contains("open")
+        ) {
           navLinks.classList.remove("open");
           hamburger.setAttribute("aria-expanded", "false");
           hamburger.textContent = "≡";
@@ -602,7 +647,9 @@ make</code></pre>
         },
         { threshold: 0.08, rootMargin: "0px 0px -20px 0px" },
       );
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+      document
+        .querySelectorAll(".reveal")
+        .forEach((el) => observer.observe(el));
     </script>
   </body>
 </html>
